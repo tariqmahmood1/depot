@@ -17,12 +17,11 @@ class OrdersController < ApplicationController
   # GET /orders/new
 
   def new
-    if@cart.line_items.empty?
-  redirect_to store_url, notice: "Your Cart is Empty"
-  return
+    @order = Order.new
+    if @cart.line_items.empty?
+      redirect_to store_url, notice: "Your Cart is Empty"
+      return
     end
-
-      @order = Order.new
   end
 
   # GET /orders/1/edit
