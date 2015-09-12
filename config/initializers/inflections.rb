@@ -14,3 +14,10 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'tax', 'taxes'
+  class Sheep < ActiveRecord::Base
+    self.table_name = "sheep"
+  end
+
+end

@@ -13,11 +13,22 @@
     </div>
     <div id="columns">
       <div id="side">
+        <div id="cart">
+          <% if @cart %>
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+                  <%= render @cart %>
+              <% end %>
+              ➤ <% end %>
+
+        </div>
+
         <ul>
           <li><a href="http://www....">Home</a> </li>
           <li><a href="http://www..../faq">Question</a></li>
           <li><a href="http://www..../news">News</a></li>
           <li><a href="http://www..../contact">Contact</a></li>
+          <li><%= link_to 'Products', store_path %></li>
+          <li><%= link_to 'Cart', cart_path(@cart)%>
       </ul>
        </div>
       <div id="main">
